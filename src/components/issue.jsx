@@ -1,5 +1,8 @@
 import { Component } from "react";
 import Comment from "./comment";
+
+
+
 const issueIcon = (
   <svg
     className="octicon octicon-sue-opened open"
