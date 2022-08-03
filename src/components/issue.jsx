@@ -24,13 +24,10 @@ class Issue extends Component {
     return (
       <>
         <div className="issue">
-          
           <div className="issue__content">
             <p className="title">
-          {issueIcon}
-              <a href={sue.user.avatarURL}>{sue.title}
-              
-              </a>
+              {issueIcon}
+              <a href={sue.user.avatarURL}>{sue.title}</a>
               {sue.tags.map((tag, idx) => (
                 <span className={tag.type} key={idx}>
                   {tag.type[0].toUpperCase() +
@@ -42,7 +39,23 @@ class Issue extends Component {
             </p>
             <span className="sub-title">
               #{sue.id} opened 2 days ago by{" "}
-              <a href={sue.user.avatarURL}>{sue.user.username}</a>
+              {/* <a href={sue.user.avatarURL}>{sue.user.username}</a> */}
+              <div className="tooltip">
+                <a href={1}> {sue.user.username}</a>
+                <div className="tooltiptext">
+                  <div className="left">
+                    <img src={sue.user.avatarURL} alt="" />
+                    <p>{sue.user.username}</p>
+                    <p>{sue.user.address.city}</p>
+                    <p> {sue.user.address.state}</p>
+                  </div>
+                  <div className="right">
+                    <button>
+                      <a href={sue.user.avatarURL}>follow</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </span>
           </div>
           <Comment value={sue.comments} />
