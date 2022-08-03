@@ -5,22 +5,22 @@ const getIssues = (amount = 10) => {
   for (let idx = 0; idx < amount; idx++) {
     const newIssue = {
       id: faker.random.numeric(5),
-      title: faker.random.words(6),
+      title: faker.random.words(4),
       createdDate: faker.date.soon(),
       isFinished: faker.datatype.boolean(),
       user: getUser(),
       comments: +faker.random.numeric(2),
       tags: [
         {
-          type: "status",
-          label: faker.random.words(2),
-        },
-        {
           type: "resolution",
           label: faker.random.words(2),
         },
         {
           type: "status",
+          label: faker.random.words(2),
+        },
+        {
+          type: "type",
           label: faker.random.words(2),
         },
       ],

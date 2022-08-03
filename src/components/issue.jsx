@@ -1,15 +1,13 @@
 import { Component } from "react";
 import Comment from "./comment";
 
-
-
 const issueIcon = (
   <svg
-    className="octicon octicon-sue-opened open"
+    className="octicon octicon-sue-opened open disk"
     viewBox="0 0 16 16"
     version="1.1"
-    width="16"
-    height="16"
+    width="18"
+    height="18"
     aria-hidden="true"
   >
     <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
@@ -26,21 +24,26 @@ class Issue extends Component {
     return (
       <>
         <div className="issue">
-          {issueIcon}
+          
           <div className="issue__content">
             <p className="title">
-              {sue.title}
+          {issueIcon}
+              <a href={sue.user.avatarURL}>{sue.title}
+              
+              </a>
               {sue.tags.map((tag, idx) => (
                 <span className={tag.type} key={idx}>
-                  {tag.type[0].toUpperCase() + tag.type}
-                  {tag.label}
+                  {tag.type[0].toUpperCase() +
+                    tag.type.slice(1, tag.type.length)}{" "}
+                  : {tag.label}
                 </span>
               ))}
+              {"  "}
             </p>
-            <p className="sub-title">
+            <span className="sub-title">
               #{sue.id} opened 2 days ago by{" "}
               <a href={sue.user.avatarURL}>{sue.user.username}</a>
-            </p>
+            </span>
           </div>
           <Comment value={sue.comments} />
         </div>
