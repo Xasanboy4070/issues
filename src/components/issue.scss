@@ -65,6 +65,7 @@ body {
         flex-wrap: wrap;
         &:hover {
           color: #539bf5;
+          font-weight: 800;
         }
         text-decoration: none;
         font-size: 20px;
@@ -78,7 +79,7 @@ body {
         font-size: calc(12px - 2px);
         font-weight: 600;
         padding: 0 0.4rem;
-        border: 0.5px solid #d2c3f9;
+        border: 0.5px solid #d2c3f990;
         border-radius: 20px;
         background-color: #d4c5f918;
         display: flex;
@@ -91,7 +92,7 @@ body {
         color: #fd9b9d;
         font-size: calc(12px - 2px);
         font-weight: 600;
-        border: 0.2px solid #fd9b9d;
+        border: 0.2px solid #fd9b9d90;
         border-radius: 20px;
         display: flex;
         align-items: center;
@@ -104,7 +105,7 @@ body {
         color: #fffde5;
         font-size: calc(12px - 2px);
         font-weight: 600;
-        border: 0.2px inset #fffde5;
+        border: 0.2px solid #fffde590;
         border-radius: 15px;
         display: flex;
         align-items: center;
@@ -131,6 +132,72 @@ body {
         color: #fffde5;
         fill: #fffde5;
         cursor: pointer;
+      }
+    }
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+
+    .tooltiptext {
+      visibility: hidden;
+      width: 300px;
+      height: 150px;
+      background-color: #323841;
+      border: 1px solid #777;
+      color: #777;
+      text-align: center;
+      border-radius: 6px;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      /* Position the tooltip */
+      position: absolute;
+      top: -150px;
+      left: -100px;
+      z-index: 1;
+      .left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        img {
+          width: 50%;
+          border-radius: 50%;
+        }
+
+        p {
+          font-size: 14px;
+          color: #fff;
+
+          &:nth-child(3) {
+            font-size: 12px;
+            color: #d2c3f9;
+          }
+
+          &:nth-child(4) {
+            font-size: 10px;
+            color: #adbac7;
+          }
+        }
+      }
+
+      .right {
+        button {
+          padding: 6px 15px;
+          background-color: #303338;
+          border: 1px solid #777;
+          border-radius: 8px;
+          color: #aaa;
+        }
+      }
+    }
+
+    &:hover {
+      .tooltiptext {
+        visibility: visible;
       }
     }
   }

@@ -3,7 +3,7 @@ import Comment from "./comment";
 
 const issueIcon = (
   <svg
-    className="octicon octicon-sue-opened open disk"
+    className="octicon octicon-data-opened open disk"
     viewBox="0 0 16 16"
     version="1.1"
     width="18"
@@ -20,32 +20,46 @@ const issueIcon = (
 
 class Issue extends Component {
   render() {
-    const { sue } = this.props;
+    const { data } = this.props;
     return (
       <>
         <div className="issue">
-          
           <div className="issue__content">
             <p className="title">
-          {issueIcon}
-              <a href={sue.user.avatarURL}>{sue.title}
-              
-              </a>
-              {sue.tags.map((tag, idx) => (
-                <span className={tag.type} key={idx}>
-                  {tag.type[0].toUpperCase() +
-                    tag.type.slice(1, tag.type.length)}{" "}
-                  : {tag.label}
+              {issueIcon}
+              <a href={data.user.avatarURL}>{data.title}</a>
+              {data.tags.map(({ type, label, idx }) => (
+                <span className={type} key={idx}>
+                  {type[0].toUpperCase() + type.slice(1, type.length)} : {label}
                 </span>
               ))}
               {"  "}
             </p>
             <span className="sub-title">
-              #{sue.id} opened 2 days ago by{" "}
-              <a href={sue.user.avatarURL}>{sue.user.username}</a>
+              #{data.id} opened 2 days ago by{" "}
+              {/* <a href={data.user.avatarURL}>{data.user.username}</a> */}
+              <div className="tooltip">
+                <a href={data.user.avatarURL}> {data.user.username}</a>
+                <div className="tooltiptext">
+                  <div className="left">
+                    <img
+                      src={data.user.avatarURL}
+                      alt="AvatarURL is not correct"
+                    />
+                    <p>{data.user.username}</p>
+                    <p>{data.user.address.city}</p>
+                    <p>{data.user.address.state}</p>
+                  </div>
+                  <div className="right">
+                    <button>
+                      <a href={data.user.avatarURL}>follow</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </span>
           </div>
-          <Comment value={sue.comments} />
+          <Comment value={data.comments} />
         </div>
       </>
     );
