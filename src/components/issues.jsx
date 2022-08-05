@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Issue from "../components/issue";
 import getIssues from "../utils/get-users.js";
 const getUser = getIssues(20);
-const btnTrue = getUser.filter((issues) => issues.isFinished === true);
-const btnFalse = getUser.filter((issues) => issues.isFinished === false);
+const finished = getUser.filter((issues) => issues.isFinished === true);
+const noFinished = getUser.filter((issues) => issues.isFinished === false);
 class Issues extends Component {
   state = {
     sues: getUser,
@@ -12,15 +12,15 @@ class Issues extends Component {
     this.setState({ sues: getUser });
   }
 
-  handleTrue() {
-    this.setState({ sues: btnTrue });
+  Finished() {
+    this.setState({ sues: finished });
   }
 
-  handleFalse() {
-    this.setState({ sues: btnFalse });
+  noFinished() {
+    this.setState({ sues: noFinished });
     console.log(this.state.sues);
-    console.log(btnTrue);
-    console.log(btnFalse);
+    console.log(finished);
+    console.log(noFinished);
   }
 
   render() {
@@ -37,19 +37,19 @@ class Issues extends Component {
           </button>
           <button
             onClick={() => {
-              this.handleTrue();
+              this.Finished();
             }}
             className="navbarBtn"
           >
-            true
+            Finished
           </button>
           <button
             onClick={() => {
-              this.handleFalse();
+              this.noFinished();
             }}
             className="navbarBtn"
           >
-            false
+            noFinished
           </button>
         </div>
         <div className="main">

@@ -15,21 +15,25 @@ body {
 .navbar {
   width: 100%;
   height: 70px;
-  background-color: white;
+  background-color: #161b22;
   border-radius: 10px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
+  padding: 1rem;
+  gap:1rem
 }
 .navbarBtn {
-  width: 100px;
-  height: 40px;
+  padding: 10px;
   font-size: 28px;
   border-radius: 10px;
   cursor: pointer;
-  background-color: blue;
+  background-color: #161b22;
   color: white;
-  border: none;
+  border: 1px solid #ffffff33;
+}
+.navbarBtn:hover{
+  background-color: #ffffff33;
 }
 .main {
   display: flex;
@@ -189,11 +193,11 @@ img {
   height: 80px;
   border-radius: 50%;
 }
-.follow{
+.follow {
   width: 70px;
   height: 25px;
 }
-.tiltop{
+.tiltop {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
