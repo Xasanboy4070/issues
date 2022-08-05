@@ -6,19 +6,19 @@ const finished = getUser.filter((issues) => issues.isFinished === true);
 const noFinished = getUser.filter((issues) => issues.isFinished === false);
 class Issues extends Component {
   state = {
-    sues: getUser,
+    data: getUser,
   };
   handleAll() {
-    this.setState({ sues: getUser });
+    this.setState({ data: getUser });
   }
 
   Finished() {
-    this.setState({ sues: finished });
+    this.setState({ data: finished });
   }
 
   noFinished() {
-    this.setState({ sues: noFinished });
-    console.log(this.state.sues);
+    this.setState({ data: noFinished });
+    console.log(this.state.data);
     console.log(finished);
     console.log(noFinished);
   }
@@ -53,8 +53,8 @@ class Issues extends Component {
           </button>
         </div>
         <div className="main">
-          {this.state.sues.map((issue, idx) => (
-            <Issue sue={issue} key={idx} />
+          {this.state.data.map((issue) => (
+            <Issue data={issue} key={issue.id} />
           ))}
         </div>
       </>

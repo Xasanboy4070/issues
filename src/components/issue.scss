@@ -21,7 +21,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   padding: 1rem;
-  gap:1rem
+  gap: 1rem;
 }
 .navbarBtn {
   padding: 10px;
@@ -32,7 +32,7 @@ body {
   color: white;
   border: 1px solid #ffffff33;
 }
-.navbarBtn:hover{
+.navbarBtn:hover {
   background-color: #ffffff33;
 }
 .main {
@@ -161,45 +161,65 @@ body {
 .tooltip {
   position: relative;
   display: inline-block;
-  color: rgb(120, 120, 255);
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-}
 
-/* Tooltip text */
-.tooltip .tooltiptext {
-  display: flex;
-  justify-content: space-between;
-  visibility: hidden;
-  width: 220px;
-  height: 140px;
-  background-color: white;
-  color: black;
-  text-align: center;
-  padding: 15px;
-  border-radius: 6px;
+  .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    height: 150px;
+    background-color: #323841;
+    border: 1px solid #777;
+    color: #777;
+    text-align: center;
+    border-radius: 6px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Position the tooltip */
+    position: absolute;
+    top: -150px;
+    left: -100px;
+    z-index: 1;
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      img {
+        width: 50%;
+        border-radius: 50%;
+      }
 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
-}
+      p {
+        font-size: 14px;
+        color: #fff;
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  top: -140px;
-}
-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-.follow {
-  width: 70px;
-  height: 25px;
-}
-.tiltop {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+        &:nth-child(3) {
+          font-size: 12px;
+          color: #d2c3f9;
+        }
+
+        &:nth-child(4) {
+          font-size: 10px;
+          color: #adbac7;
+        }
+      }
+    }
+
+    .right {
+      button {
+        padding: 6px 15px;
+        background-color: #303338;
+        border: 1px solid #777;
+        border-radius: 8px;
+        color: #aaa;
+      }
+    }
+  }
+
+  &:hover {
+    .tooltiptext {
+      visibility: visible;
+    }
+  }
 }

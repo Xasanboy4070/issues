@@ -20,15 +20,15 @@ const issueIcon = (
 
 class Issue extends Component {
   render() {
-    const { sue } = this.props;
+    const { data } = this.props;
     return (
       <>
         <div className="issue">
           <div className="issue__content">
             <p className="title">
               {issueIcon}
-              <a href={sue.user.avatarURL}>{sue.title}</a>
-              {sue.tags.map((tag, idx) => (
+              <a href={data.user.avatarURL}>{data.title}</a>
+              {data.tags.map((tag, idx) => (
                 <span className={tag.type} key={idx}>
                   {tag.type[0].toUpperCase() +
                     tag.type.slice(1, tag.type.length)}{" "}
@@ -38,22 +38,29 @@ class Issue extends Component {
               {"  "}
             </p>
             <span className="sub-title">
-              #{sue.id} opened 2 days ago by{" "}
-              <div class="tooltip">
-                {sue.user.username}
-                <div class="tooltiptext">
-                  <div className="tiltop">
-                    <img src={sue.user.avatarURL} alt="" />
-                    <a href={`https://github.com/${sue.user.username}`}>
-                      {sue.user.username}
-                    </a>
+              #{data.id} opened 2 days ago by{" "}
+              <div className="tooltip">
+                <a href={data.user.avatarURL}> {data.user.username}</a>
+                <div className="tooltiptext">
+                  <div className="left">
+                    <img
+                      src={data.user.avatarURL}
+                      alt="AvatarURL is not correct"
+                    />
+                    <p>{data.user.username}</p>
+                    <p>{data.user.address.city}</p>
+                    <p>{data.user.address.state}</p>
                   </div>
-                  <button className="follow">Follow</button>
+                  <div className="right">
+                    <button>
+                      <a href={data.user.avatarURL}>follow</a>
+                    </button>
+                  </div>
                 </div>
               </div>
             </span>
           </div>
-          <Comment value={sue.comments} />
+          <Comment value={data.comments} />
         </div>
       </>
     );
