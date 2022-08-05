@@ -61,5 +61,4 @@ class Issues extends Component {
     );
   }
 }
-
 export default Issues;
