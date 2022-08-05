@@ -59,6 +59,8 @@ class Issues extends Component {
         </div>
       </>
     );
+
+    
   }
 }
 export default Issues;
