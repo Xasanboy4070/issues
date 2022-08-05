@@ -18,9 +18,6 @@ class Issues extends Component {
 
   noFinished() {
     this.setState({ data: noFinished });
-    console.log(this.state.data);
-    console.log(finished);
-    console.log(noFinished);
   }
 
   render() {
@@ -60,7 +57,7 @@ class Issues extends Component {
       </>
     );
 
-    
+
   }
 }
 export default Issues;

@@ -16,7 +16,8 @@ body {
   width: 100%;
   height: 70px;
   background-color: #161b22;
-  border-radius: 10px;
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -50,10 +51,6 @@ body {
 
   &:hover {
     background-color: #161b22;
-  }
-  &:first-of-type {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
   }
   &:last-of-type {
     border-bottom-left-radius: 10px;
